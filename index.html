@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="The official author website of Niquey J Discover upcoming psychological thrillers, works in progress, and the creative world behind the stories.">
+  <meta name="theme-color" content="#101010">
+  <title>Niquey J | Author</title>
+  <style>
+    :root {
+      --black: #101010;
+      --ink: #191717;
+      --red: #a51f2b;
+      --red-bright: #d13a45;
+      --white: #ffffff;
+      --muted: #bcbcbc;
+      --line: rgba(241,232,220,.17);
+      --panel: #171515;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--black);
+      color: var(--white);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.65;
+    }
+    a { color: inherit; }
+    .wrap { width: min(1120px, calc(100% - 44px)); margin: 0 auto; }
+    .topbar {
+      position: sticky; top: 0; z-index: 20;
+      background: rgba(16,16,16,.93);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav { display: flex; align-items: center; justify-content: space-between; min-height: 76px; gap: 24px; }
+    .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+    .monogram {
+      width: 43px; height: 43px; display: grid; place-items: center;
+      border: 1px solid var(--red-bright); color: var(--white);
+      font-size: 16px; letter-spacing: -2px; position: relative;
+    }
+    .monogram::after { content: ""; position: absolute; width: 7px; height: 7px; background: var(--red-bright); right: -3px; bottom: -3px; }
+    .brand-name { font: 700 16px/1.1 Arial, sans-serif; letter-spacing: 2px; text-transform: uppercase; }
+    .brand-sub { display: block; color: var(--muted); font: 10px/1.6 Arial, sans-serif; letter-spacing: 3px; text-transform: uppercase; }
+    .nav-links { display: flex; gap: 25px; align-items: center; }
+    .nav-links a { font: 11px Arial, sans-serif; letter-spacing: 1.3px; text-transform: uppercase; text-decoration: none; color: var(--muted); }
+    .nav-links a:hover, .nav-links a:focus { color: var(--white); }
+    .menu-toggle { display: none; border: 1px solid var(--line); background: transparent; color: var(--white); padding: 9px 12px; font: 11px Arial, sans-serif; text-transform: uppercase; letter-spacing: 1px; }
+    .hero {
+      min-height: 590px; display: flex; align-items: center; position: relative; overflow: hidden;
+      background:
+        radial-gradient(ellipse at 78% 45%, rgba(165,31,43,.27), transparent 32%),
+        linear-gradient(112deg, #101010 0%, #101010 54%, #1c1112 100%);
+      border-bottom: 1px solid var(--line);
+    }
+    .hero::before {
+      content: ""; position: absolute; right: 9%; top: 12%; width: 320px; height: 440px;
+      border: 1px solid rgba(209,58,69,.23); transform: rotate(8deg);
+      box-shadow: 18px 18px 0 rgba(165,31,43,.05), 36px 36px 0 rgba(241,232,220,.025);
+    }
+    .hero::after {
+      content: "NJ"; position: absolute; right: 10%; top: 17%;
+      color: rgba(241,232,220,.055); font: 700 clamp(150px, 26vw, 300px)/1 Arial, sans-serif;
+      letter-spacing: -30px; pointer-events: none;
+    }
+    .hero-content { position: relative; z-index: 1; padding: 92px 0 100px; max-width: 690px; }
+    .eyebrow { color: var(--red-bright); font: 11px Arial, sans-serif; text-transform: uppercase; letter-spacing: 3px; }
+    h1 { margin: 20px 0 8px; font: 700 clamp(52px, 8vw, 96px)/.95 Arial, sans-serif; letter-spacing: -5px; text-transform: uppercase; }
+    .hero-line { width: 76px; height: 3px; background: var(--red-bright); margin: 29px 0 24px; }
+    .hero p { font-size: clamp(18px, 2.5vw, 23px); color: #ffffff; max-width: 530px; margin: 0 0 32px; }
+    .button-row { display: flex; flex-wrap: wrap; gap: 12px; }
+    .button { display: inline-flex; align-items: center; justify-content: center; padding: 13px 19px; min-height: 46px; text-decoration: none; font: 700 11px Arial, sans-serif; letter-spacing: 1.5px; text-transform: uppercase; transition: .2s ease; }
+    .button.primary { background: var(--red); border: 1px solid var(--red); color: #fff7f0; }
+    .button.primary:hover { background: var(--red-bright); }
+    .button.secondary { border: 1px solid rgba(241,232,220,.36); color: var(--white); }
+    .button.secondary:hover { border-color: var(--white); }
+    section { padding: 90px 0; scroll-margin-top: 75px; }
+    .section-kicker { color: var(--red-bright); font: 10px Arial, sans-serif; text-transform: uppercase; letter-spacing: 3px; margin-bottom: 13px; }
+    h2 { font: 700 clamp(32px, 5vw, 49px)/1.05 Arial, sans-serif; letter-spacing: -1.8px; text-transform: uppercase; margin: 0 0 18px; }
+    .section-intro { max-width: 630px; color: var(--muted); font-size: 17px; margin: 0; }
+    .books { background: #151313; }
+    .book-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 42px; }
+    .book-card { border: 1px solid var(--line); background: var(--panel); padding: 30px; position: relative; overflow: hidden; min-height: 285px; }
+    .book-card.featured { border-top: 3px solid var(--red); }
+    .book-card.featured::after { content: ""; position: absolute; width: 150px; height: 220px; right: 24px; bottom: -54px; border: 1px solid rgba(209,58,69,.24); transform: rotate(8deg); }
+    .tag { display: inline-block; border: 1px solid rgba(209,58,69,.6); color: #ff596b; padding: 5px 9px; font: 10px Arial, sans-serif; text-transform: uppercase; letter-spacing: 1.4px; }
+    .book-card h3 { font: 700 clamp(24px, 3vw, 34px)/1.1 Arial, sans-serif; text-transform: uppercase; letter-spacing: -1px; margin: 23px 0 12px; position: relative; z-index: 1; }
+    .book-card p { color: var(--muted); max-width: 440px; margin: 0 0 19px; position: relative; z-index: 1; }
+    .quiet-note { color: var(--white); font-size: 13px; font-style: italic; position: relative; z-index: 1; }
+    .about-grid { display: grid; grid-template-columns: .72fr 1.28fr; gap: clamp(32px, 7vw, 88px); align-items: start; }
+    .about-mark { min-height: 300px; background: linear-gradient(145deg, #231719, #131212 70%); border: 1px solid var(--line); display: grid; place-items: center; position: relative; overflow: hidden; }
+    .about-mark::before, .about-mark::after { content: ""; position: absolute; border: 1px solid rgba(209,58,69,.35); transform: rotate(35deg); width: 190px; height: 280px; }
+    .about-mark::after { width: 150px; height: 240px; transform: rotate(35deg) translate(18px, 15px); border-color: rgba(241,232,220,.12); }
+    .about-mark span { position: relative; z-index: 1; font: 700 100px/1 Arial, sans-serif; letter-spacing: -15px; color: var(--white); }
+    .bio p { color: #ffffff; margin: 0 0 17px; font-size: 16px; }
+    .creative { background: #151313; }
+    .creative-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 38px; }
+    .creative-card { padding: 25px 22px; border: 1px solid var(--line); min-height: 165px; }
+    .creative-card .number { color: var(--red-bright); font: 11px Arial, sans-serif; letter-spacing: 2px; }
+    .creative-card h3 { margin: 15px 0 8px; font: 700 17px Arial, sans-serif; text-transform: uppercase; letter-spacing: .3px; }
+    .creative-card p { color: var(--muted); font-size: 14px; margin: 0; }
+    .connect-grid { display: grid; grid-template-columns: 1fr auto; gap: 25px; align-items: end; }
+    .contact-links { display: flex; flex-wrap: wrap; gap: 12px; }
+    .contact-links a { text-decoration: none; color: var(--white); border-bottom: 1px solid var(--red); padding: 8px 0; font: 12px Arial, sans-serif; letter-spacing: .6px; }
+    footer { border-top: 1px solid var(--line); padding: 25px 0; color: #aaaaaa; font: 10px Arial, sans-serif; letter-spacing: 1px; text-transform: uppercase; }
+    .footer-row { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+    @media (max-width: 760px) {
+      .nav { min-height: 68px; }
+      .menu-toggle { display: block; }
+      .nav-links { display: none; position: absolute; top: 68px; left: 0; right: 0; padding: 18px 22px 22px; background: #101010; border-bottom: 1px solid var(--line); flex-direction: column; align-items: flex-start; gap: 18px; }
+      .nav-links.open { display: flex; }
+      .hero { min-height: 540px; }
+      .hero::before { right: -95px; opacity: .65; }
+      .hero::after { right: 1%; top: 28%; }
+      h1 { letter-spacing: -3px; }
+      .book-grid, .about-grid, .connect-grid { grid-template-columns: 1fr; }
+      .about-mark { min-height: 220px; }
+      .creative-grid { grid-template-columns: 1fr; }
+      section { padding: 68px 0; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap nav">
+      <a class="brand" href="#home" aria-label="Niquey J home">
+        <span class="monogram">NJ</span>
+        <span><span class="brand-name">Niquey J</span><span class="brand-sub">Author · Creative</span></span>
+      </a>
+      <button class="menu-toggle" aria-expanded="false" aria-controls="nav-links">Menu</button>
+      <nav class="nav-links" id="nav-links" aria-label="Main navigation">
+        <a href="#books">Bookshelf</a>
+        <a href="#about">About</a>
+        <a href="#creative">Creative world</a>
+        <a href="#connect">Connect</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="wrap hero-content">
+        <div class="eyebrow">Welcome to the world of Niquey J</div>
+        <h1>Stories<br>that linger.</h1>
+        <div class="hero-line"></div>
+        <p>Psychological thrillers. Unfiltered emotions. The kind of stories that stay with you long after the final page.</p>
+        <div class="button-row">
+          <a class="button primary" href="#books">Explore the bookshelf</a>
+          <a class="button secondary" href="#about">Meet the author</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="books" id="books">
+      <div class="wrap">
+        <div class="section-kicker">The bookshelf</div>
+        <h2>Every story has a shadow.</h2>
+        <p class="section-intro">A home for the stories I've written, the ones I'm working on, and the ones still taking shape in my mind.</p>
+        <div class="book-grid">
+          <article class="book-card featured">
+            <span class="tag">Upcoming · Unpublished</span>
+            <h3>The Silent Treatment</h3>
+            <p>A psychological thriller exploring justice, control, and the fine line between protecting people and becoming the very thing you fight against.</p>
+            <span class="quiet-note">More details will be revealed when the time is right.</span>
+          </article>
+          <article class="book-card">
+            <span class="tag">Work in progress</span>
+            <h3>More stories to come</h3>
+            <p>New worlds are being built behind the scenes. For now, the details stay close to the chest.</p>
+            <span class="quiet-note">Check back for future announcements.</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="wrap about-grid">
+        <div class="about-mark" aria-label="NJ monogram artwork"><span>NJ</span></div>
+        <div class="bio">
+          <div class="section-kicker">Behind the pages</div>
+          <h2>A little about me.</h2>
+          <p>I fell in love with writing in high school, starting with drama before finding my way into romance, poetry, and eventually psychological thrillers.</p>
+          <p>I'm a creative at heart. Whether it's books, poems, songs, or art, I love bleeding my soul onto pages. When I write, I visualize everything, every little detail, like a series playing out in my head.</p>
+          <p>My first completed novel was a psychological thriller inspired by reality, and somehow, every well-thought-out story since has led me back to the genre. Maybe I've found my niche, or maybe there's just something about the human mind that keeps pulling me in.</p>
+          <p>This is only the beginning. More stories to come.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="creative" id="creative">
+      <div class="wrap">
+        <div class="section-kicker">Beyond the bookshelf</div>
+        <h2>One creative mind.<br>Many ways to tell a story.</h2>
+        <p class="section-intro">Writing is where it starts, but creativity doesn't always stay between the covers of a book.</p>
+        <div class="creative-grid">
+          <article class="creative-card"><span class="number">01 / STORIES</span><h3>Books & fiction</h3><p>Characters, secrets, complicated choices, and worlds that refuse to stay quiet.</p></article>
+          <article class="creative-card"><span class="number">02 / WORDS</span><h3>Poetry & reflections</h3><p>Little pieces of the heart, the mind, and everything that can be difficult to say out loud.</p></article>
+          <article class="creative-card"><span class="number">03 / CREATION</span><h3>Songs & art</h3><p>Other ways to give a feeling a voice, a shape, or a life of its own.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="connect">
+      <div class="wrap connect-grid">
+        <div>
+          <div class="section-kicker">Stay connected</div>
+          <h2>Let's keep in touch.</h2>
+          <p class="section-intro">For book updates, future releases, and a little more of the creative world behind the pages.</p>
+        </div>
+        <div class="contact-links">
+          <a href="mailto:niqueyj.author@gmail.com">Email Niquey J ↗</a>
+          <a href="https://www.instagram.com/niqueyjauthor/" target="_blank" rel="noopener noreferrer">Instagram ↗</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-row">
+      <span>© <span id="year"></span> Niquey J All rights reserved.</span>
+      <span>Every story leaves a mark.</span>
+    </div>
+  </footer>
+  <script>
+    const menuButton = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    menuButton.addEventListener('click', () => {
+      const open = navLinks.classList.toggle('open');
+      menuButton.setAttribute('aria-expanded', String(open));
+    });
+    navLinks.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      menuButton.setAttribute('aria-expanded', 'false');
+    }));
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
